@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pink Tracker</title>
+  <meta name="description" content="A simple daily tracker for sugar-free days, exercise and fasting.">
+  <meta name="theme-color" content="#FFF5F8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Pink Tracker">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app">
+    <main id="views">
+      <section id="tab-today" class="tab" aria-label="Today"><div class="tab-inner"></div></section>
+      <section id="tab-week" class="tab" aria-label="Week" hidden><div class="tab-inner"></div></section>
+      <section id="tab-settings" class="tab" aria-label="Settings" hidden><div class="tab-inner"></div></section>
+    </main>
+
+    <nav class="tabbar" role="tablist" aria-label="Main">
+      <button class="tab-btn is-active" role="tab" aria-selected="true" data-act="tab" data-tab="today">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg>
+        <span>Today</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-act="tab" data-tab="week">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        <span>Week</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-act="tab" data-tab="settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+        <span>Settings</span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="sheet" class="sheet-layer" hidden>
+    <div class="sheet-backdrop" data-act="sheet-close"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Edit day"></div>
+  </div>
+  <div id="dialogs"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p style="padding:24px;font-family:sans-serif">Pink Tracker needs JavaScript turned on.</p></noscript>
+
+  <script src="./js/streak.js"></script>
+  <script src="./js/fasting.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/ui-common.js"></script>
+  <script src="./js/ui-today.js"></script>
+  <script src="./js/ui-week.js"></script>
+  <script src="./js/ui-settings.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
